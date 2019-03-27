@@ -26,14 +26,16 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #endregion // PROTECTED_MEMBER_VARIABLES
 
     #region UNITY_MONOBEHAVIOUR_METHODS
-
+  
+    
     protected virtual void Start()
     {
+        
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
     }
-
+    
     protected virtual void OnDestroy()
     {
         if (mTrackableBehaviour)
@@ -48,6 +50,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     ///     Implementation of the ITrackableEventHandler function called when the
     ///     tracking state changes.
     /// </summary>
+    public bool isFound = false;
+    public string founder="";
     public void OnTrackableStateChanged(
         TrackableBehaviour.Status previousStatus,
         TrackableBehaviour.Status newStatus)
@@ -60,12 +64,17 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+            founder = mTrackableBehaviour.TrackableName;
+            isFound = true;
             OnTrackingFound();
+            
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
                  newStatus == TrackableBehaviour.Status.NO_POSE)
         {
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+            
+            isFound = false;
             OnTrackingLost();
         }
         else
@@ -73,6 +82,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             // For combo of previousStatus=UNKNOWN + newStatus=UNKNOWN|NOT_FOUND
             // Vuforia is starting, but tracking has not been lost or found yet
             // Call OnTrackingLost() to hide the augmentations
+            isFound = false;
             OnTrackingLost();
         }
     }

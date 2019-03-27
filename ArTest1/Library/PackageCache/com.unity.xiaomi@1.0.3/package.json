@@ -1,0 +1,9 @@
+{
+    "name": "com.unity.xiaomi",
+    "displayName": "Xiaomi SDK",
+    "documentation": "https://unity3d.com/cn/partners/xiaomi/guide",
+    "version": "1.0.3",
+    "unity": "2018.1",
+    "dependencies": {},
+    "description": "Unity SDK for Xiaomi integrates Xiaomi store to Unity IAP, which includes Amazon, Google Play, etc. The stand-alone Xiaomi SDK isn't integrated to Unity IAP and just include Xiaomi Store SDK. If developers only need to publish their games to Xiaomi Store, this SDK will suffice."
+}

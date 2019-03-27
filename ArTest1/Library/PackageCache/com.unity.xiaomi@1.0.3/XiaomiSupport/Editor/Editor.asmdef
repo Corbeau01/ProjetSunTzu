@@ -1,0 +1,12 @@
+{
+    "name": "Editor",
+    "references": [
+        "XiaomiSupport"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

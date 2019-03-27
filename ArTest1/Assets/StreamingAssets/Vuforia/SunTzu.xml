@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="Warrior10" size="1.000000 1.586066" />
+    <ImageTarget name="Warrior10" size="1.000000 1.573771" />
+    <ImageTarget name="Warior10Blue" size="1.000000 1.647303" />
+    <ImageTarget name="Board" size="1.000000 0.689408" />
   </Tracking>
 </QCARConfig>
