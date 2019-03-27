@@ -23,17 +23,17 @@ public class PositionTracker : MonoBehaviour
         {
             if (id == 1)
             {
-                this.transform.position = this.transform.position + new Vector3(0.01f, 0f, 0f);
+                this.transform.position = this.transform.position + new Vector3(0f, 0f, -0.01f);
             }
             if (id == 2)
             {
-                this.transform.position = this.transform.position + new Vector3(-0.01f, 0f, 0f);
+                this.transform.position = this.transform.position + new Vector3(0f, 0f, 0.01f);
             }
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
             Instantiate(Effect, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            this.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         }
     }
 }
